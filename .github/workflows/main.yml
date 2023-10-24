@@ -126,6 +126,8 @@ jobs:
       - test_ubuntu_and_mac
       - test_amazon_linux
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Install Doxygen
         run: sudo apt-get install doxygen -y
@@ -136,7 +138,6 @@ jobs:
       - name: Run Doxygen
         run: doxygen ./Doxyfile
       - name: Deploy to gh-pages
-        if: ${{ github.ref == 'refs/heads/master' && github.event_name == 'push' }}
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
