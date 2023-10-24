@@ -138,7 +138,6 @@ jobs:
       - name: Run Doxygen
         run: doxygen ./Doxyfile
       - name: Deploy to gh-pages
-        if: ${{ github.ref == 'refs/heads/master' }}
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
