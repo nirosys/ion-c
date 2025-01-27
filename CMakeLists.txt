@@ -3,6 +3,13 @@ project(IonC
         VERSION 1.1.3
         LANGUAGES CXX C)
 
+# Print out environment, to see differences between build environments:
+get_cmake_property(_variableNames VARIABLES)
+list (SORT _variableNames)
+foreach (_variableName ${_variableNames})
+               message(STATUS “${_variableName}=${${_variableName}}”)
+endforeach()
+
 # we default to 'Release' build type
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release CACHE STRING "Build type" FORCE)
